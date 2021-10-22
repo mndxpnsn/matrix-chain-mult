@@ -9,8 +9,6 @@
 #include <iostream>
 
 const int inf = 3e+8;
-int total_num_ops = 0;
-int total_num_ops_saved = 0;
 
 typedef struct memo_table_element {
     bool is_set;
@@ -39,12 +37,9 @@ void free_memo_table(m_table r, int n) {
 
 int min_ops(int p[], int i, int j, m_table memo_table) {
     int min_nops = inf;
-
-    total_num_ops++;
     
     //Get value from memo table if possible
     if(memo_table[i][j].is_set) {
-        total_num_ops_saved++;
         min_nops = memo_table[i][j].num_ops;
         return min_nops;
     }
@@ -102,6 +97,9 @@ int minimum_num_ops(int p[], int n) {
     //Compute minimum number of operations
     int min_num_ops = min_ops(p, 0, n - 1, memo_table);
     
+    //Free data
+    free_memo_table(memo_table, n);
+    
     return min_num_ops;
 }
 
@@ -119,9 +117,11 @@ int main(int argc, const char * argv[]) {
     //Compute minimum number of operations
     int min_num_ops = minimum_num_ops(p, n);
     
-    std::cout << "min_num_nops: " << min_num_ops << std::endl;
-    std::cout << "total number of calls: " << total_num_ops << std::endl;
-    std::cout << "total number of calls saved: " << total_num_ops_saved << std::endl;
+    //Free data
+    delete [] p;
+    
+    //Print results
+    std::cout << "min_num_ops: " << min_num_ops << std::endl;
     std::cout << "done" << std::endl;
     
     return 0;
