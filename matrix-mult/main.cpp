@@ -20,8 +20,6 @@ typedef struct memo_table_element {
 typedef m_table_elem** m_table;
 
 typedef struct parenthesis_element {
-    int num_l_par;
-    int num_r_par;
     int num_l_par_pos;
     int num_r_par_pre;
 } p_elem;
@@ -96,8 +94,6 @@ void print_tree(int i, int j, m_table memo_table) {
     int n = j - i + 1;
     p_elem* par_tree = new p_elem[n];
     for(int it = 0; it < n; ++it) {
-        par_tree[it].num_l_par = 0;
-        par_tree[it].num_r_par = 0;
         par_tree[it].num_l_par_pos = 0;
         par_tree[it].num_r_par_pre = 0;
     }
@@ -108,16 +104,12 @@ void print_tree(int i, int j, m_table memo_table) {
     //Print tree
     std::cout << "printing matrix product solution:" << std::endl;
     for(int it = 0; it < n; ++it) {
-        int num_l_par = par_tree[it].num_l_par;
-        int num_r_par = par_tree[it].num_r_par;
         int num_l_par_pos = par_tree[it].num_l_par_pos;
         int num_r_par_pre = par_tree[it].num_r_par_pre;
         
         for(int it = 0; it < num_r_par_pre; ++it) { std::cout << ")"; }
         for(int it = 0; it < num_l_par_pos; ++it) { std::cout << "("; }
-        for(int it = 0; it < num_l_par; ++it) { std::cout << "("; }
         if(it < n - 1) { std::cout << "A" << it + 1; }
-        for(int it = 0; it < num_r_par; ++it) { std::cout << ")"; }
     }
     
     std::cout << std::endl;
