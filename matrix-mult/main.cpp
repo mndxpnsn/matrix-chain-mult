@@ -65,10 +65,12 @@ void make_par_tree(int i, int j, m_table memo_table, p_elem* par_tree) {
 int check_num_ops(int i, int j, int p[], m_table memo_table) {
     int num_of_ops = 0;
     
+    //Case pair of matrices
     if(j - i == 2) {
         num_of_ops = p[i] * p[i+1] * p[j];
     }
     
+    //Case product of at least three matrices
     if(j - i > 2) {
         int min_k = memo_table[i][j].cut;
         int num_ops1 = check_num_ops(i, min_k, p, memo_table);
@@ -128,7 +130,7 @@ int min_ops(int p[], int i, int j, m_table memo_table) {
     }
     
     //Case single or no matrix
-    if(j - i <= 1) {
+    if(j - i < 2) {
         memo_table[i][j].is_set = true;
         memo_table[i][j].num_ops = 0;
         memo_table[i][j].cut = 0;
