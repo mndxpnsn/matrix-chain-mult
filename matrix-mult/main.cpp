@@ -281,7 +281,7 @@ int main(int argc, const char * argv[]) {
     std::cout << std::endl;
     
     std::cout << "min_num_ops: " << min_num_ops << std::endl;
-    std::cout << "min_num_ops_ref: " << min_num_ops_ver << std::endl;
+    std::cout << "min_num_ops_ver: " << min_num_ops_ver << std::endl;
     
     int left_index = 1;
     int right_index = len;
