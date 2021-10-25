@@ -2,7 +2,7 @@
 //  user_types.hpp
 //  matrix-mult
 //
-//  Created by Derek Harrison on 26/10/2021.
+//  Created by mndx on 26/10/2021.
 //
 
 #ifndef user_types_h
