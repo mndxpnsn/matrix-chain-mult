@@ -2,7 +2,7 @@
 //  main.cpp
 //  matrix-mult
 //
-//  Created by Derek Harrison on 22/10/2021.
+//  Created by mndx on 22/10/2021.
 //
 
 #include <cstdlib>
