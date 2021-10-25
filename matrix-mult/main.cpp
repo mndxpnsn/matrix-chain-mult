@@ -213,11 +213,6 @@ int minimum_num_ops(int p[], int n, m_table memo_table) {
     return min_num_ops;
 }
 
-typedef struct result_element {
-    int** m;
-    int** s;
-} r_elem;
-
 void matrix_chain_order(int p[], int len_p, int** m, int** s) {
     int n = len_p - 1;
 
