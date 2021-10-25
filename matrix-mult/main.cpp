@@ -237,13 +237,13 @@ void matrix_chain_order(int p[], int len_p, int** m, int** s) {
 
 void print_optimal_parens(int** s, int i, int j) {
     if(i == j) {
-        printf("A%i", i);
+        std::cout << "A" << i;
     }
     else {
-        printf("(");
+        std::cout << "(";
         print_optimal_parens(s, i, s[i][j]);
         print_optimal_parens(s, s[i][j]+1, j);
-        printf(")");
+        std::cout << ")";
     }
 }
 
