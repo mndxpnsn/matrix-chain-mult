@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <time.h>
 
+#include "matrix_chain_reference.hpp"
+
 const int inf = 3e+8;
 
 typedef struct memo_table_element {
@@ -274,20 +276,26 @@ int main(int argc, const char * argv[]) {
     int** s = int2D(len, len + 1);
 
     matrix_chain_order(p, n, m, s);
+    
+    //Compare with more reference results
+    int min_num_ops_ref = matrix_chain_order_ref(p, n);
 
     //Print results
     print_solution(n, memo_table);
     print_optimal_parens(s, 1, len);
     std::cout << std::endl;
     
+    std::cout << "Optimum number of operations for matrix product" << std::endl;
     std::cout << "min_num_ops: " << min_num_ops << std::endl;
     std::cout << "min_num_ops_ver: " << min_num_ops_ver << std::endl;
     
     int left_index = 1;
     int right_index = len;
     
+    std::cout << "Number of operations from reference methods:" << std::endl;
     std::cout << "m[1][len]: " << m[left_index][right_index] << std::endl;
-
+    std::cout << "min_num_ops_ref: " << min_num_ops_ref << std::endl;
+    
     //Free data
     delete [] p;
     free_memo_table(memo_table, n);
