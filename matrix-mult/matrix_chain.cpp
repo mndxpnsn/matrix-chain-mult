@@ -14,7 +14,7 @@
 #include "memory.hpp"
 #include "user_types.hpp"
 
-int tot_num_ops = 0;
+int cost_parens = 0;
 
 void make_par_tree(int i, int j, m_table memo_table, p_elem* par_tree) {
     
@@ -98,7 +98,7 @@ void print_tree(int i, int j, m_table memo_table) {
 int min_ops(int p[], int i, int j, m_table memo_table) {
     int min_nops = inf;
     
-    tot_num_ops++;
+    cost_parens++;
     
     //Get value from memo table if possible
     if(memo_table[i][j].is_set) {

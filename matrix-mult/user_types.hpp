@@ -9,9 +9,9 @@
 #define user_types_h
 
 const int inf = 3e+8;
-extern int tot_num_ops;
-extern int tot_num_ops_ref1;
-extern int tot_num_ops_ref2;
+extern int cost_parens;
+extern int cost_parens_ref1;
+extern int cost_parens_ref2;
 
 typedef struct memo_table_element {
     bool is_set;

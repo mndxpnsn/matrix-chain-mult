@@ -63,9 +63,9 @@ int main(int argc, const char * argv[]) {
     
     //Print number of operations for computing
     //optimal parenthesization using the different methods
-    std::cout << "total number of operations main using dp: " << tot_num_ops << std::endl;
-    std::cout << "total number of operations reference method using dp: " << tot_num_ops_ref1 << std::endl;
-    std::cout << "total number of operations reference using bottom up dp: " << tot_num_ops_ref2 << std::endl;
+    std::cout << "cost of parenthesization main using dp: " << cost_parens << std::endl;
+    std::cout << "cost of parenthesization reference using dp: " << cost_parens_ref1 << std::endl;
+    std::cout << "cost of parenthesization reference using bottom up dp: " << cost_parens_ref2 << std::endl;
     
     //Free data
     delete [] p;
