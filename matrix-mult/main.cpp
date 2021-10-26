@@ -61,6 +61,12 @@ int main(int argc, const char * argv[]) {
     std::cout << "m[1][len]: " << m[left_index][right_index] << std::endl;
     std::cout << "min_num_ops_ref: " << min_num_ops_ref << std::endl;
     
+    //Print number of operations for computing
+    //optimal parenthesization using the different methods
+    std::cout << "total number of operations main using dp: " << tot_num_ops << std::endl;
+    std::cout << "total number of operations reference method using dp: " << tot_num_ops_ref1 << std::endl;
+    std::cout << "total number of operations reference using bottom up dp: " << tot_num_ops_ref2 << std::endl;
+    
     //Free data
     delete [] p;
     free_memo_table(memo_table, n);

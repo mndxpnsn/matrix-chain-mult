@@ -13,9 +13,13 @@
 #include "matrix_chain_reference.hpp"
 
 int dp[100][100];
+int tot_num_ops_ref1 = 0;
+int tot_num_ops_ref2 = 0;
  
 // Function for matrix chain multiplication
 int matrix_chain_memoized(int* p, int i, int j) {
+    
+    tot_num_ops_ref1++;
     
     if (i == j) {
         return 0;
@@ -54,6 +58,7 @@ void matrix_chain_order(int p[], int len_p, int** m, int** s) {
             int j = i + l - 1;
             m[i][j] = 3e+8;
             for(int k = i; k <= j - 1; ++k) {
+                tot_num_ops_ref2++;
                 int q = m[i][k] + m[k+1][j] + p[i-1]*p[k]*p[j];
                 if(q < m[i][j]) {
                     m[i][j] = q;
